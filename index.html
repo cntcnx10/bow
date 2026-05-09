@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Profile - Wannisa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Prompt:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-glow: rgba(138, 43, 226, 0.6);
+            --secondary-glow: rgba(0, 212, 255, 0.4);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f1a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Prompt', sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Ambient Background Light */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-glow);
+            filter: blur(100px);
+            top: 20%;
+            left: 20%;
+            z-index: -1;
+        }
+
+        /* Glassmorphism Card */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        /* Stylized Portrait (Updated src) */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--secondary-glow);
+            padding: 5px;
+            background: linear-gradient(45deg, #8a2be2, #00d4ff);
+            object-fit: cover;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .id-badge {
+            font-size: 0.8rem;
+            color: var(--secondary-glow);
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        /* Abilities Section */
+        .section-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #aaa;
+            margin-bottom: 10px;
+            text-align: left;
+            border-left: 2px solid var(--primary-glow);
+            padding-left: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .ability-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .ability-box:hover {
+            background: rgba(138, 43, 226, 0.2);
+            border-color: var(--primary-glow);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            text-align: left;
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .contact-item {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .contact-label {
+            color: var(--secondary-glow);
+        }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .btn-log {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: #fff;
+        }
+
+        .btn-log:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-connect {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+        }
+
+        .btn-connect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Profile Image - Updated src to local file -->
+        <img src="วรรณิษา เจ็กสูงเนิน.jpg" alt="Wannisa J. Portrait" class="profile-img">
+        
+        <h1>WANNISA J.</h1>
+        <div class="id-badge">ID: 6650100218</div>
+
+        <!-- Unique Abilities -->
+        <div class="section-title">Unique Abilities</div>
+        <div class="grid">
+            <div class="ability-box">✨ หายตัว</div>
+            <div class="ability-box">🧠 อ่านใจ</div>
+        </div>
+
+        <!-- Resources -->
+        <div class="section-title">Resources</div>
+        <div class="grid">
+            <div class="ability-box">💰 เสกเงิน</div>
+            <div class="ability-box">♾️ อมตะ</div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-label">Email:</span>
+                <span>wannisa.j@mystic.io</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Secure Line:</span>
+                <span>+66 9X-XXX-XXXX</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Social:</span>
+                <span>@wannisa.vault</span>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="btn-container">
+            <button class="btn btn-log">Mission Log</button>
+            <button class="btn btn-connect">Connect Directly</button>
+        </div>
+    </div>
+
+</body>
+</html>
