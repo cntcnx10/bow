@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent Profile - Wannisa</title>
+    <title>Agent Profile - Wannisa Nature</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Prompt:wght@300;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-glow: rgba(138, 43, 226, 0.6);
-            --secondary-glow: rgba(0, 212, 255, 0.4);
-            --glass-bg: rgba(255, 255, 255, 0.05);
+            --primary-glow: rgba(16, 124, 65, 0.6); /* Emerald Green */
+            --secondary-glow: rgba(186, 255, 41, 0.3); /* Lime/Gold Glow */
+            --glass-bg: rgba(0, 20, 10, 0.4);
             --glass-border: rgba(255, 255, 255, 0.1);
         }
 
@@ -22,7 +22,8 @@
         }
 
         body {
-            background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f1a 100%);
+            /* พื้นหลังโทนเขียวเข้มลึกลับ */
+            background: radial-gradient(circle at center, #0a1a0f 0%, #050a05 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -31,60 +32,75 @@
             color: #ffffff;
             overflow: hidden;
             padding: 20px;
+            position: relative;
         }
 
-        /* Ambient Background Light */
+        /* ลูกเล่นใบไม้ลอย (Background Decor) */
+        .leaf-decor {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* Ambient Forest Light */
         body::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             background: var(--primary-glow);
-            filter: blur(100px);
-            top: 20%;
-            left: 20%;
+            filter: blur(120px);
+            top: 10%;
+            right: 10%;
             z-index: -1;
         }
 
         /* Glassmorphism Card */
         .card {
             background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             padding: 40px;
             width: 100%;
             max-width: 450px;
             text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 255, 100, 0.05);
             position: relative;
+            z-index: 10;
         }
 
-        /* Stylized Portrait (Updated src) */
+        /* Profile Image */
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 3px solid var(--secondary-glow);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             padding: 5px;
-            background: linear-gradient(45deg, #8a2be2, #00d4ff);
+            background: linear-gradient(45deg, #107c41, #86efac);
             object-fit: cover;
-            box-shadow: 0 0 20px var(--primary-glow);
+            box-shadow: 0 0 25px var(--primary-glow);
         }
 
         h1 {
             font-size: 1.8rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             margin-bottom: 5px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
+            background: linear-gradient(to bottom, #fff, #a7f3d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .id-badge {
             font-size: 0.8rem;
-            color: var(--secondary-glow);
+            color: #86efac;
             letter-spacing: 3px;
             margin-bottom: 30px;
             opacity: 0.8;
@@ -95,10 +111,10 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: #aaa;
+            color: #6edb96;
             margin-bottom: 10px;
             text-align: left;
-            border-left: 2px solid var(--primary-glow);
+            border-left: 2px solid #107c41;
             padding-left: 10px;
         }
 
@@ -110,17 +126,19 @@
         }
 
         .ability-box {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
             border-radius: 12px;
             font-size: 0.9rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
+            border: 1px solid rgba(0, 255, 100, 0.1);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .ability-box:hover {
-            background: rgba(138, 43, 226, 0.2);
-            border-color: var(--primary-glow);
+            background: rgba(16, 124, 65, 0.3);
+            border-color: #86efac;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(16, 124, 65, 0.4);
         }
 
         /* Contact Info */
@@ -128,17 +146,21 @@
             text-align: left;
             font-size: 0.85rem;
             margin-bottom: 30px;
-            color: #ddd;
+            color: #cbd5e1;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 15px;
         }
 
         .contact-item {
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             display: flex;
             justify-content: space-between;
         }
 
         .contact-label {
-            color: var(--secondary-glow);
+            color: #86efac;
+            font-weight: 500;
         }
 
         /* Buttons */
@@ -149,8 +171,8 @@
 
         .btn {
             flex: 1;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
@@ -168,41 +190,61 @@
 
         .btn-log:hover {
             background: rgba(255, 255, 255, 0.1);
+            border-color: #86efac;
         }
 
         .btn-connect {
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            background: linear-gradient(45deg, #064e3b, #10b981);
             color: white;
-            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+            box-shadow: 0 4px 15px rgba(6, 78, 59, 0.5);
         }
 
         .btn-connect:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+        }
+
+        /* Leaf Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+            50% { transform: translateY(-20px) rotate(10deg); opacity: 0.5; }
+            100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+        }
+
+        .bg-leaf {
+            position: absolute;
+            fill: #107c41;
+            animation: float 6s infinite ease-in-out;
         }
     </style>
 </head>
 <body>
 
+    <!-- Background Decoration -->
+    <svg class="leaf-decor" viewBox="0 0 100 100">
+        <path class="bg-leaf" style="top: 10%; left: 5%; width: 50px; animation-delay: 0s;" d="M10,50 Q25,25 50,50 Q75,75 90,50 Q75,25 50,50 Q25,75 10,50" />
+        <path class="bg-leaf" style="bottom: 15%; right: 10%; width: 70px; animation-delay: 2s;" d="M10,50 Q25,25 50,50 Q75,75 90,50 Q75,25 50,50 Q25,75 10,50" />
+    </svg>
+
     <div class="card">
-        <!-- Profile Image - Updated src to local file -->
+        <!-- Profile Image -->
         <img src="วรรณิษา เจ็กสูงเนิน.jpg" alt="Wannisa J. Portrait" class="profile-img">
         
-        <h1>วรรณิษา เจ็กสูงเนิน.</h1>
+        <h1>วรรณิษา เจ็กสูงเนิน</h1>
         <div class="id-badge">ID: 6650100218</div>
 
         <!-- Unique Abilities -->
         <div class="section-title">Unique Abilities</div>
         <div class="grid">
-            <div class="ability-box">✨ หายตัว</div>
-            <div class="ability-box">🧠 อ่านใจ</div>
+            <div class="ability-box">🌿 หายตัว</div>
+            <div class="ability-box">👁️ อ่านใจ</div>
         </div>
 
         <!-- Resources -->
         <div class="section-title">Resources</div>
         <div class="grid">
-            <div class="ability-box">💰 เสกเงิน</div>
-            <div class="ability-box">♾️ อมตะ</div>
+            <div class="ability-box">🍃 เสกเงิน</div>
+            <div class="ability-box">💎 อมตะ</div>
         </div>
 
         <!-- Contact Info -->
