@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent Profile - Wannisa Nature</title>
+    <title>Agent Profile - Dumbo Galaxy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Prompt:wght@300;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-glow: rgba(16, 124, 65, 0.6); /* Emerald Green */
-            --secondary-glow: rgba(186, 255, 41, 0.3); /* Lime/Gold Glow */
-            --glass-bg: rgba(0, 20, 10, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --primary-glow: rgba(123, 31, 162, 0.6); /* Purple Glow */
+            --secondary-glow: rgba(0, 191, 255, 0.4); /* Deep Sky Blue */
+            --glass-bg: rgba(5, 10, 30, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --jupiter-orange: #ffab40;
         }
 
         * {
@@ -22,8 +23,8 @@
         }
 
         body {
-            /* พื้นหลังโทนเขียวเข้มลึกลับ */
-            background: radial-gradient(circle at center, #0a1a0f 0%, #050a05 100%);
+            /* พื้นหลังห้วงอวกาศลึก */
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -35,239 +36,204 @@
             position: relative;
         }
 
-        /* ลูกเล่นใบไม้ลอย (Background Decor) */
-        .leaf-decor {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        /* Ambient Forest Light */
+        /* เอฟเฟกต์ทางช้างเผือก */
         body::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 600px;
+            height: 600px;
             background: var(--primary-glow);
-            filter: blur(120px);
-            top: 10%;
-            right: 10%;
+            filter: blur(150px);
+            top: -10%;
+            left: -10%;
             z-index: -1;
+            animation: pulse 10s infinite alternate;
         }
 
-        /* Glassmorphism Card */
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.5; }
+            to { transform: scale(1.2); opacity: 0.8; }
+        }
+
         .card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 30px;
             padding: 40px;
             width: 100%;
             max-width: 450px;
             text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 255, 100, 0.05);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(123, 31, 162, 0.2);
             position: relative;
             z-index: 10;
         }
 
-        /* Profile Image */
+        /* Profile Image Space Style */
         .profile-img {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            padding: 5px;
-            background: linear-gradient(45deg, #107c41, #86efac);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 6px;
+            background: linear-gradient(135deg, #7b1fa2, #00bfff);
             object-fit: cover;
-            box-shadow: 0 0 25px var(--primary-glow);
+            box-shadow: 0 0 30px var(--secondary-glow);
         }
 
         h1 {
             font-size: 1.8rem;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            background: linear-gradient(to bottom, #fff, #a7f3d0);
+            background: linear-gradient(to right, #fff, #e0b0ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .id-badge {
-            font-size: 0.8rem;
-            color: #86efac;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            opacity: 0.8;
+        .nickname {
+            color: var(--jupiter-orange);
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
 
-        /* Abilities Section */
+        .id-badge {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
         .section-title {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: #6edb96;
-            margin-bottom: 10px;
+            color: #00bfff;
+            margin-bottom: 12px;
             text-align: left;
-            border-left: 2px solid #107c41;
+            border-left: 3px solid #7b1fa2;
             padding-left: 10px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 25px;
         }
 
         .ability-box {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             padding: 12px;
             border-radius: 12px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(0, 255, 100, 0.1);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 0.85rem;
+            border: 1px solid rgba(123, 31, 162, 0.3);
+            transition: 0.3s;
         }
 
         .ability-box:hover {
-            background: rgba(16, 124, 65, 0.3);
-            border-color: #86efac;
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(16, 124, 65, 0.4);
+            background: rgba(123, 31, 162, 0.2);
+            border-color: #00bfff;
+            transform: translateY(-2px);
         }
 
-        /* Contact Info */
-        .contact-info {
+        .info-panel {
             text-align: left;
             font-size: 0.85rem;
             margin-bottom: 30px;
-            color: #cbd5e1;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .contact-item {
-            margin-bottom: 6px;
+        .info-item {
+            margin-bottom: 8px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
         }
 
-        .contact-label {
-            color: #86efac;
-            font-weight: 500;
-        }
-
-        /* Buttons */
-        .btn-container {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 14px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 0.75rem;
-            transition: 0.4s;
+        .info-label {
+            color: #94a3b8;
+            font-size: 0.7rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .btn-log {
-            background: transparent;
-            border: 1px solid var(--glass-border);
-            color: #fff;
-        }
-
-        .btn-log:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #86efac;
+        .info-value {
+            color: #f8fafc;
+            font-weight: 300;
         }
 
         .btn-connect {
-            background: linear-gradient(45deg, #064e3b, #10b981);
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            border: none;
+            background: linear-gradient(45deg, #4a148c, #01579b);
             color: white;
-            box-shadow: 0 4px 15px rgba(6, 78, 59, 0.5);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: 0.4s;
         }
 
         .btn-connect:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+            letter-spacing: 4px;
+            background: linear-gradient(45deg, #7b1fa2, #0288d1);
+            box-shadow: 0 0 25px var(--primary-glow);
         }
 
-        /* Leaf Animation */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
-            50% { transform: translateY(-20px) rotate(10deg); opacity: 0.5; }
-            100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
-        }
-
-        .bg-leaf {
+        /* ดาวระยิบระยับ */
+        .stars {
             position: absolute;
-            fill: #107c41;
-            animation: float 6s infinite ease-in-out;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background-image: radial-gradient(white 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.2;
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Decoration -->
-    <svg class="leaf-decor" viewBox="0 0 100 100">
-        <path class="bg-leaf" style="top: 10%; left: 5%; width: 50px; animation-delay: 0s;" d="M10,50 Q25,25 50,50 Q75,75 90,50 Q75,25 50,50 Q25,75 10,50" />
-        <path class="bg-leaf" style="bottom: 15%; right: 10%; width: 70px; animation-delay: 2s;" d="M10,50 Q25,25 50,50 Q75,75 90,50 Q75,25 50,50 Q25,75 10,50" />
-    </svg>
+    <div class="stars"></div>
 
     <div class="card">
-        <!-- Profile Image -->
-        <img src="วรรณิษา เจ็กสูงเนิน.jpg" alt="Wannisa J. Portrait" class="profile-img">
+        <img src="วรรณิษา เจ็กสูงเนิน.jpg" alt="Dumbo" class="profile-img">
         
         <h1>วรรณิษา เจ็กสูงเนิน</h1>
+        <div class="nickname">โบว์ (ดัมโบ้) | อายุ 200 ปี</div>
         <div class="id-badge">ID: 6650100218</div>
 
-        <!-- Unique Abilities -->
-        <div class="section-title">Unique Abilities</div>
+        <div class="section-title">Cosmic Abilities</div>
         <div class="grid">
-            <div class="ability-box">🌿 หายตัว</div>
-            <div class="ability-box">👁️ อ่านใจ</div>
+            <div class="ability-box">🚀 บินได้</div>
+            <div class="ability-box">👻 หายตัว</div>
+            <div class="ability-box">🔮 เสกของ</div>
+            <div class="ability-box">🧠 อ่านใจ</div>
         </div>
 
-        <!-- Resources -->
-        <div class="section-title">Resources</div>
-        <div class="grid">
-            <div class="ability-box">🍃 เสกเงิน</div>
-            <div class="ability-box">💎 อมตะ</div>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="contact-info">
-            <div class="contact-item">
-                <span class="contact-label">Email:</span>
-                <span>wannisa.j@mystic.io</span>
+        <div class="info-panel">
+            <div class="info-item">
+                <span class="info-label">Education</span>
+                <span class="info-value">สถาบันการจัดการกาแลคซี่</span>
             </div>
-            <div class="contact-item">
-                <span class="contact-label">Secure Line:</span>
-                <span>+66 9X-XXX-XXXX</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">Social:</span>
-                <span>@wannisa.vault</span>
+            <div class="info-item" style="margin-top: 10px;">
+                <span class="info-label">Current Position</span>
+                <span class="info-value">ผู้บริหารประจำดาวพฤหัสบดี (Jupiter Executive)</span>
             </div>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="btn-container">
-            <button class="btn btn-log">Mission Log</button>
-            <button class="btn btn-connect">Connect Directly</button>
-        </div>
+        <button class="btn btn-connect">Jump into Orbit</button>
     </div>
 
 </body>
